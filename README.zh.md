@@ -49,6 +49,8 @@ git clone https://github.com/lokic7123-star/dsh-route-resilience.git \
 #      "dsh-route-resilience": "link:/path/to/deepseek-harness-desktop/plugins/dsh-route-resilience"
 ```
 
+仓库**已内置编译好的插件（lib/）**，普通 clone 即可直接接线使用——**安装不需要 Node/npm**；只有在你想自行修改插件时才需要构建。
+
 或在 DSH 仓库根目录用脚手架接线：
 
 ```powershell
@@ -132,6 +134,7 @@ npm run build      # host 端 tsc 编译（lib/index.js）+ client 端 tsdown �
 npm test           # 路由器单元测试（node --import tsx --test tests/router.test.ts）
 ```
 
+- **`lib/` 会提交进仓库**：编译产物随 clone 一起发布，普通安装不需要 Node；改 `src/` 后请运行 `npm run build` 并把重新生成的 `lib/` 连同改动一起提交。
 - 每次 push / PR，CI 都会运行构建、测试与 `npm audit`（见 `.github/workflows/`）。
 - 项目自包含：编译与测试针对 npm 上公开发布的 `@deepseek-ai/*` 包，开发无需整个 DSH monorepo。
 

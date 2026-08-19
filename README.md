@@ -49,6 +49,10 @@ git clone https://github.com/lokic7123-star/dsh-route-resilience.git \
 #      "dsh-route-resilience": "link:/path/to/deepseek-harness-desktop/plugins/dsh-route-resilience"
 ```
 
+The repository ships the compiled plugin in `lib/`, so a plain clone is ready to wire
+up — **you do not need Node/npm to install it**. Building is only required if you want
+to modify the plugin yourself.
+
 Or run the DSH plugin scaffold in the repo root:
 
 ```bash
@@ -132,6 +136,9 @@ npm run build      # typescript host build (lib/index.js) + tsdown client bundle
 npm test           # unit tests for the router (node --import tsx --test tests/router.test.ts)
 ```
 
+- `lib/` is **committed** to the repository: the compiled plugin ships with a plain
+  clone, so installs don't need Node. When you change `src/`, run `npm run build` and
+  commit the regenerated `lib/` together with your change.
 - CI runs build + tests + `npm audit` on every push and pull request (see `.github/workflows/`).
 - The project is self-contained: it compiles and tests against the `@deepseek-ai/*` packages from the npm registry, so you don't need the whole DSH monorepo to develop it.
 

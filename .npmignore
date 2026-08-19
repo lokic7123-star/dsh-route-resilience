@@ -6,6 +6,7 @@ tsconfig.client.json
 tsdown.config.ts
 .github/
 node_modules/
+lib/types/
 *.log
 
 # Keep: lib/, cordis.patch.yml, README.md, README.zh.md, LICENSE

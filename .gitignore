@@ -1,11 +1,9 @@
 # Dependencies
 node_modules/
 
-# Build output
-lib/
+# Type-check emit (dev only; not part of the shipped build)
 lib/types/
-*.tsbuildinfo
-*.tsbuildinfo.*
+*.tsbuildinfo*
 
 # Logs
 *.log

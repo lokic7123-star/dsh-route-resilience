@@ -36,7 +36,9 @@ CI runs build + tests + `npm audit` on every push and pull request.
 1. Keep changes focused. If a change starts to sprawl, split it.
 2. Add or update tests for the routing/health behavior you touch — bug reports
    without a failing test are harder to act on.
-3. Run `npm run build` and `npm test` locally and make sure they pass.
+3. Run `npm run build` and `npm test` locally and make sure they pass. **Note:
+   `lib/` is committed** so users can install without Node — if you changed `src/`,
+   commit the regenerated `lib/` together with your change.
 4. Write a PR description explaining the problem, the change, and any trade-offs.
 
 Small, well-scoped PRs merge much faster than large ones.
