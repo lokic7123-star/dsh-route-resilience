@@ -1,0 +1,11 @@
+# Source and tooling do not ship in the published package
+src/
+tests/
+tsconfig.json
+tsconfig.client.json
+tsdown.config.ts
+.github/
+node_modules/
+*.log
+
+# Keep: lib/, cordis.patch.yml, README.md, README.zh.md, LICENSE

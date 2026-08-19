@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    name: Build & test (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # tsdown requires Node ^22.18.0 || >=24.11.0
+        node: ['22.x', '24.x']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build host (tsc)
+        run: npm run build:host
+
+      - name: Build client (tsdown)
+        run: npm run build:client
+
+      - name: Test
+        run: npm test
+
+      - name: Dependency audit
+        run: npm audit --audit-level=high
